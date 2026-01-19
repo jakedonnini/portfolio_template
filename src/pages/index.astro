@@ -65,7 +65,7 @@ const cosmeticTexts: { [section: string]: string } = {
   <!-- HERO -->
   <Section class="relative flex min-h-72 pl-4 bg-radial-[at_50%_10%] from-accent/10 to-transparent">
     <div class="max-w-md m-auto flex flex-col gap-6">
-      <div class="text-left">
+      <div class="mt-4 text-left">
         <span class="text-xl leading-normal">
           {userProfessionalDescription.split('|').map(line => (
             <>
@@ -75,7 +75,7 @@ const cosmeticTexts: { [section: string]: string } = {
           ))}
         </span>
       </div>
-      <div class="text-center">
+      <div class="mb-4 text-center">
         <Tags client:load tags={heroTags} />
       </div>
     </div>

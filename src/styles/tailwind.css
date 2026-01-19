@@ -7,12 +7,20 @@
 
 @theme {
   /* COLOR */
-  --theme-hue: 200;
+  /* --theme-hue: 200;
   --color-primary: hsl(var(--theme-hue), 20%, 8%);
   --color-primary-foreground: hsl(var(--theme-hue), 100%, 92%);
   --color-secondary: hsl(var(--theme-hue), 40%, 12%);
   --color-accent: hsl(var(--theme-hue), 100%, 50%);
-  --color-edge: hsl(var(--theme-hue), 30%, 18%);
+  --color-edge: hsl(var(--theme-hue), 30%, 18%); */
+
+  /* COLOR - White/Monochrome theme */
+  --theme-hue: 0; /* Hue doesn't matter when saturation is 0 */
+  --color-primary: hsl(0, 0%, 8%);           /* Dark gray background */
+  --color-primary-foreground: hsl(0, 0%, 92%); /* Light gray/white text */
+  --color-secondary: hsl(0, 0%, 12%);        /* Slightly lighter dark gray */
+  --color-accent: hsl(0, 0%, 50%);           /* Medium gray accent */
+  --color-edge: hsl(0, 0%, 18%);  
 
   /* FONT */
   --font-primary: Rajdhani, system-ui;
