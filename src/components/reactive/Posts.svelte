@@ -9,6 +9,7 @@
         title: string;
         tags: string[];
         icon: string; // URL to the thumbnail
+        hover?: string; // optional URL to hover GIF/image
         repo: string; // GitHub repo link
     }
 
@@ -57,27 +58,50 @@
 </script>
 
 {#snippet postCard(post: GitHubProject)}
-    <a
-        href={`https://github.com/${post.repo}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="flex flex-col justify-between gap-2 min-h-32 h-full p-2 border rounded-interactive border-edge bg-linear-to-b from-secondary to-secondary/60 pointer-events-auto hover:border-accent duration-200"
-    >
-        <div class="flex flex-col gap-2">
-            <img src={post.icon} alt={post.title} class="aspect-square w-full rounded-interactive object-cover"/>
-            <h2 class="text-lg font-semibold">{post.title}</h2>
-        </div>
-        <div class="flex flex-row gap-2 overflow-hidden text-accent">
-            {#each getSortedTags(post) as tag}
-                <span class={($filters.length > 0 && !$filters.includes(tag)) ? "opacity-60" : "font-black"}>{tag}</span>
-            {/each}
-        </div>
-    </a>
+<a
+    href={`https://github.com/${post.repo}`}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="flex flex-col justify-between gap-2 min-h-32 h-full p-2 border rounded-interactive border-edge bg-linear-to-b from-secondary to-secondary/60 hover:border-accent duration-200"
+>
+    <!-- IMAGE + HOVER WRAPPER -->
+    <div class="relative overflow-hidden rounded-interactive group aspect-square">
+        <!-- Base image -->
+        <img
+            src={post.icon}
+            alt={post.title}
+            class="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+        />
+
+        {#if post.hover}
+            <!-- Hover image / GIF -->
+            <img
+                src={post.hover}
+                alt={`${post.title} preview`}
+                class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            />
+        {/if}
+    </div>
+
+    <!-- TITLE -->
+    <h2 class="text-lg font-semibold mt-2">{post.title}</h2>
+
+    <!-- TAGS -->
+    <div class="flex flex-row gap-2 overflow-hidden text-accent">
+        {#each getSortedTags(post) as tag}
+            <span class={($filters.length > 0 && !$filters.includes(tag)) ? "opacity-60" : "font-black"}>
+                {tag}
+            </span>
+        {/each}
+    </div>
+</a>
 {/snippet}
+
 
 <Filters />
 
-<div class="group grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 rounded-interactive pointer-events-none hover:border-edge duration-200">					
+<!-- GRID -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 rounded-interactive hover:border-edge duration-200">					
     {#each sortedPosts as post}
         {@render postCard(post)}
     {/each}

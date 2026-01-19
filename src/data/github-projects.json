@@ -4,7 +4,7 @@
     "title": "Kilobot Swarm Simulator",
     "repo": "jakedonnini/Kilobot_swarm",
     "tags": ["Robotics", "Python"],
-    "icon": "https://raw.githubusercontent.com/jakedonnini/Kilobot_swarm/main/media/swarm.gif",
+    "icon": "https://raw.githubusercontent.com/jakedonnini/Kilobot_swarm/main/media/star_comparision.png",
     "hover": "https://raw.githubusercontent.com/jakedonnini/Kilobot_swarm/main/media/swarm.gif"
   },
   {
@@ -12,41 +12,47 @@
     "title": "AR Robotics Simulator",
     "repo": "jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator",
     "tags": ["MuJoCo", "AR", "VR", "Robotics", "OpenXR", "ROS2", "Unity", "C++", "C#"],
-    "icon": "https://raw.githubusercontent.com/jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator/main/Docs/simulator_icon.png"
+    "icon": "https://raw.githubusercontent.com/jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator/main/Docs/simulator_icon.png",
+    "hover": "https://raw.githubusercontent.com/jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator/main/Docs/simulator_hover.gif"
   },
   {
     "slug": "franka-arm-mpc",
     "title": "Inverse Kinematics for Franka Robot Arm",
     "repo": "jakedonnini/franka-arm-mpc",
     "tags": ["MuJoCo", "C++", "Robotics", "IK"],
-    "icon": "https://github.com/user-attachments/assets/b999048d-1a5f-4094-b9f2-b8a3d02de1d9"
+    "icon": "https://github.com/user-attachments/assets/19b9df03-b5f1-427b-9ddc-2cbd3071cef0",
+    "hover": "https://github.com/user-attachments/assets/b999048d-1a5f-4094-b9f2-b8a3d02de1d9"
   },
   {
     "slug": "Machine-Learning-Brain-Robotic-Interface",
     "title": "ML EEG Controlled Robot car",
     "repo": "jakedonnini/Machine-Learning-Brain-Robotic-Interface",
     "tags": ["AI", "Machine Learning", "Robotics", "Python", "Microcontroller", "C++", "RTOS"],
-    "icon": "https://github.com/user-attachments/assets/303766bc-e626-4ec4-a6ea-07fa1c689add"
+    "icon": "https://github.com/user-attachments/assets/8778c1e4-ddb6-4a61-9db2-4d0dff068ab2",
+    "hover": "https://github.com/user-attachments/assets/303766bc-e626-4ec4-a6ea-07fa1c689add"
   },
   {
     "slug": "hue-ros-packages",
     "title": "Logo Painting Robot: Senior Design",
     "repo": "jakedonnini/Hue_Ros_Packages",
     "tags": ["Robotics", "Python", "C++", "ROS2", "Microcontroller", "Linux"],
-    "icon": "https://github.com/user-attachments/assets/131dbb56-9a8b-42b3-8a0d-934ffb7c3479"
+    "icon": "https://github.com/user-attachments/assets/cf8ad51c-c857-467f-a49c-ad3ab9613d60",
+    "hover": "https://github.com/user-attachments/assets/131dbb56-9a8b-42b3-8a0d-934ffb7c3479"
   },
   {
     "slug": "forward-kinematics-visualization-tool",
     "title": "Forward Kinematics Visualization Tool",
     "repo": "jakedonnini/Forward-Kinematics-Visualization-Tool",
     "tags": ["Robotics", "Python", "Gazebo", "Linux", "ROS2"],
-    "icon": "https://raw.githubusercontent.com/jakedonnini/Forward-Kinematics-Visualization-Tool/main/Images/Pos_2.png"
+    "icon": "https://raw.githubusercontent.com/jakedonnini/Forward-Kinematics-Visualization-Tool/main/Images/Pos_2.png",
+    "hover": "https://raw.githubusercontent.com/jakedonnini/Forward-Kinematics-Visualization-Tool/main/Images/Sim_Pos_2.png"
   },
   {
     "slug": "meam-510-robot-project",
     "title": "MEAM 510 Robot Project",
     "repo": "jakedonnini/MEAM_510_Robot",
     "tags": ["Robotics", "C++", "Microcontroller", "I2C", "ESP32"],
-    "icon": "https://github.com/jakedonnini/MEAM_510_Robot/assets/24221155/5a0785ca-84ef-4776-b3e6-27d95a9d1de8"
+    "icon": "https://github.com/jakedonnini/MEAM_510_Robot/assets/24221155/5a0785ca-84ef-4776-b3e6-27d95a9d1de8",
+    "hover": "https://github.com/user-attachments/assets/3406f459-0753-4726-91c2-7931ba22b06c"
   }
 ]

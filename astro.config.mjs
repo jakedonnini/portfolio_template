@@ -13,6 +13,7 @@ export default defineConfig({
   },
   integrations: [svelte(), mdx(), sitemap()],
   site: siteUrl,
+  base: "/portfolio_template",
   redirects: {
     "/posts": "/", // redirect from /posts because that page doesn't exist.
   },
