@@ -1,14 +1,14 @@
 {
-  "userEmail": "user@email.com",
-  "userPhoneNumber": "user-phone-number",
+  "userEmail": "jakedonnini@email.com",
+  "userPhoneNumber": "609-202-5670",
   "userSocials": [
     {
       "title": "LinkedIn",
-      "link": "https://www.linkedin.com/in/linkedinHandle"
+      "link": "https://www.linkedin.com/in/jake-donnini/"
     },
     {
       "title": "GitHub",
-      "link": "https://www.github.com/githubUsername"
+      "link": "https://www.github.com/jakedonnini"
     }
   ]
 }

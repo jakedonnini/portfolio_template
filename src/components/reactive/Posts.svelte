@@ -4,12 +4,21 @@
     import Filters from './Filters.svelte';
     import { cn } from '../../styles/cn';
 
+    interface GitHubProject {
+        slug: string;
+        title: string;
+        tags: string[];
+        icon: string; // URL to the thumbnail
+        repo: string; // GitHub repo link
+    }
+
     interface Props {
-        allPosts: CollectionEntry<'posts'>[];
+        allPosts: GitHubProject[];
     }
 
     const { allPosts }: Props = $props();
-    let sortedPosts: CollectionEntry<'posts'>[] = $state(allPosts);
+    let sortedPosts: GitHubProject[] = $state(allPosts);
+
 
     function getIntersectionLength(a: any[], b: any[]): number {
         const intersection = a.filter(value => b.includes(value));
@@ -17,12 +26,16 @@
     }
 
     function sortPosts(filters: string[]) {
-        if(!filters || filters.length == 0){
-            sortedPosts = allPosts.sort((a: any, b: any) => b.data.date.valueOf() - a.data.date.valueOf());
+        if (!filters || filters.length === 0) {
+            // Sort by last GitHub push date
+            sortedPosts = [...allPosts].sort((a, b) => b.date.valueOf() - a.date.valueOf());
             return;
         }
-        
-        sortedPosts = allPosts.sort((a: any, b: any) => getIntersectionLength(b.data.tags, filters) - getIntersectionLength(a.data.tags, filters));
+
+        // Sort by tag intersection count
+        sortedPosts = [...allPosts].sort(
+            (a, b) => getIntersectionLength(b.tags, filters) - getIntersectionLength(a.tags, filters)
+        );
     }
 
     filters.subscribe((value) => {
@@ -35,23 +48,24 @@
         return includesA && includesB ? 0 : includesA ? -1 : 1; 
     }
 
-    function getSortedTags(post: CollectionEntry<'posts'>): string[] {
-        const sortedTags: string[] = [...post.data.tags];
+    function getSortedTags(post: GitHubProject): string[] {
+        const sortedTags: string[] = [...post.tags]; // use post.tags instead of post.data.tags
         sortedTags.sort((a, b) => compareTags(a, b));
         return sortedTags;
     }
+
 </script>
 
-{#snippet postCard(post: CollectionEntry<'posts'>)}
-    <a href={`/posts/${post.id}`} class="flex flex-col justify-between gap-2 min-h-32 h-full p-2 border rounded-interactive border-edge bg-linear-to-b from-secondary to-secondary/60 pointer-events-auto hover:border-accent duration-200">
-        <div>
-            <span class="text-sm text-primary-foreground/75">
-                <time datetime={post.data.date.toISOString()}>
-                    {post.data.date.toLocaleDateString('en-us', {year: 'numeric', month: 'short', day: 'numeric'})}
-                </time>
-            </span>
-            <h2 class="text-lg font-semibold">{post.data.title}</h2>
-            <p>{post.data.description}</p>
+{#snippet postCard(post: GitHubProject)}
+    <a
+        href={`https://github.com/${post.repo}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex flex-col justify-between gap-2 min-h-32 h-full p-2 border rounded-interactive border-edge bg-linear-to-b from-secondary to-secondary/60 pointer-events-auto hover:border-accent duration-200"
+    >
+        <div class="flex flex-col gap-2">
+            <img src={post.icon} alt={post.title} class="aspect-square w-full rounded-interactive object-cover"/>
+            <h2 class="text-lg font-semibold">{post.title}</h2>
         </div>
         <div class="flex flex-row gap-2 overflow-hidden text-accent">
             {#each getSortedTags(post) as tag}

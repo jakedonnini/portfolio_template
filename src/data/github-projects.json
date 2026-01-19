@@ -1,0 +1,52 @@
+[
+  {
+    "slug": "kilobot-swarm",
+    "title": "Kilobot Swarm Simulator",
+    "repo": "jakedonnini/Kilobot_swarm",
+    "tags": ["Robotics", "Python"],
+    "icon": "https://raw.githubusercontent.com/jakedonnini/Kilobot_swarm/main/media/swarm.gif",
+    "hover": "https://raw.githubusercontent.com/jakedonnini/Kilobot_swarm/main/media/swarm.gif"
+  },
+  {
+    "slug": "ar-robotics-simulator",
+    "title": "AR Robotics Simulator",
+    "repo": "jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator",
+    "tags": ["MuJoCo", "AR", "VR", "Robotics", "OpenXR", "ROS2", "Unity", "C++", "C#"],
+    "icon": "https://raw.githubusercontent.com/jakedonnini/OpenXR_Unity_MuJoCo_ROS2_Robotics_Simulator/main/Docs/simulator_icon.png"
+  },
+  {
+    "slug": "franka-arm-mpc",
+    "title": "Inverse Kinematics for Franka Robot Arm",
+    "repo": "jakedonnini/franka-arm-mpc",
+    "tags": ["MuJoCo", "C++", "Robotics", "IK"],
+    "icon": "https://github.com/user-attachments/assets/b999048d-1a5f-4094-b9f2-b8a3d02de1d9"
+  },
+  {
+    "slug": "Machine-Learning-Brain-Robotic-Interface",
+    "title": "ML EEG Controlled Robot car",
+    "repo": "jakedonnini/Machine-Learning-Brain-Robotic-Interface",
+    "tags": ["AI", "Machine Learning", "Robotics", "Python", "Microcontroller", "C++", "RTOS"],
+    "icon": "https://github.com/user-attachments/assets/303766bc-e626-4ec4-a6ea-07fa1c689add"
+  },
+  {
+    "slug": "hue-ros-packages",
+    "title": "Logo Painting Robot: Senior Design",
+    "repo": "jakedonnini/Hue_Ros_Packages",
+    "tags": ["Robotics", "Python", "C++", "ROS2", "Microcontroller", "Linux"],
+    "icon": "https://github.com/user-attachments/assets/131dbb56-9a8b-42b3-8a0d-934ffb7c3479"
+  },
+  {
+    "slug": "forward-kinematics-visualization-tool",
+    "title": "Forward Kinematics Visualization Tool",
+    "repo": "jakedonnini/Forward-Kinematics-Visualization-Tool",
+    "tags": ["Robotics", "Python", "Gazebo", "Linux", "ROS2"],
+    "icon": "https://raw.githubusercontent.com/jakedonnini/Forward-Kinematics-Visualization-Tool/main/Images/Pos_2.png"
+  },
+  {
+    "slug": "meam-510-robot-project",
+    "title": "MEAM 510 Robot Project",
+    "repo": "jakedonnini/MEAM_510_Robot",
+    "tags": ["Robotics", "C++", "Microcontroller", "I2C", "ESP32"],
+    "icon": "https://github.com/jakedonnini/MEAM_510_Robot/assets/24221155/5a0785ca-84ef-4776-b3e6-27d95a9d1de8"
+  }
+]

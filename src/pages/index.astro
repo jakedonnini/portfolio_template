@@ -9,19 +9,51 @@ import { siteTitle, SiteDescription } from "../data/site.json";
 import { userProfessionalDescription } from "../data/user-professional.json";
 import { userIntroduction, userName } from "../data/user-personal.json";
 import userPicture from "../../public/user-picture.jpeg";
-import { getCollection } from "astro:content";
+import projects from "../data/github-projects.json";
 
-const allPosts = (await getCollection("posts")).filter((post) => post.data.published);
 
+// Fetch GitHub last pushed dates at build time
+async function addGitHubDates(projects) {
+  const projectsWithDates = await Promise.all(
+    projects.map(async (p) => {
+      try {
+        const res = await fetch(`https://api.github.com/repos/${p.repo}`);
+        const data = await res.json();
+        return {
+          ...p,
+          date: data.pushed_at ? new Date(data.pushed_at) : new Date(), // fallback to now
+        };
+      } catch (err) {
+        console.warn(`Failed to fetch ${p.repo}:`, err);
+        return { ...p, date: new Date() };
+      }
+    })
+  );
+  return projectsWithDates;
+}
+
+const allPosts = await addGitHubDates(
+  projects.map((p) => ({
+    slug: p.slug,
+    title: p.title,
+    tags: p.tags,
+    icon: p.icon,
+    repo: p.repo,
+  }))
+);
+
+// Tags for the hero filter
 const heroTags: Set<string> = new Set(
-  allPosts.flatMap((post) => post.data.tags),
+  allPosts.flatMap((post) => post.tags),
 );
 
 const cosmeticTexts: { [section: string]: string } = {
-  header: "BACKROOM",
+  header: "PROJECTS",
   hero: "CLICK ON A TAG",
   about: "ABOUT ME",
 };
+
+
 ---
 
 <Layout
@@ -31,9 +63,20 @@ const cosmeticTexts: { [section: string]: string } = {
 >
   <!-- HERO -->
   <Section class="relative flex min-h-72 pl-4 bg-radial-[at_50%_10%] from-accent/10 to-transparent">
-    <div class="max-w-md m-auto text-center">
-      <span class="text-2xl">{userProfessionalDescription}</span>
-      <Tags client:load tags={heroTags} />
+    <div class="max-w-md m-auto flex flex-col gap-6">
+      <div class="text-left">
+        <span class="text-xl leading-normal">
+          {userProfessionalDescription.split('|').map(line => (
+            <>
+              {line.trim()}
+              <br />
+            </>
+          ))}
+        </span>
+      </div>
+      <div class="text-center">
+        <Tags client:load tags={heroTags} />
+      </div>
     </div>
     <CosmeticText text={cosmeticTexts.hero} vertical />
   </Section>
@@ -48,7 +91,15 @@ const cosmeticTexts: { [section: string]: string } = {
     <span class="absolute"><CosmeticText text={cosmeticTexts.about} vertical /></span>
     <div class="flex flex-col gap-16 max-w-3xl mx-auto px-8 pt-32 pb-16 md:flex-row md:p-16">
       <div class="group/image aspect-square h-48 w-48 mx-auto my-auto rounded-interactive bg-accent md:mx-0">
-        <img class="h-48 w-48 scale-110 -rotate-z-12 overflow-clip object-cover rounded-interactive group-hover/image:scale-[101%] group-hover/image:-rotate-z-0 duration-200"
+        <img
+          class="
+            h-48 w-48
+            scale-100 -rotate-0
+            overflow-clip object-cover rounded-interactive
+            group-hover/image:scale-110
+            group-hover/image:rotate-z-12
+            duration-200
+          "
           src={userPicture.src}
           alt={`${userName}'s profile picture.`}
         />
